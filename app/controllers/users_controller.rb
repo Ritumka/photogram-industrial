@@ -1,9 +1,25 @@
 class UsersController < ApplicationController
+  before_action :get_user, only: [:show, :liked, :feed, :discover, :followers, :following]
+
   def show
-    @user = User.find_by!(username: params.fetch(:username))
+    @own_photos = @user.own_photos
   end
 
   def liked
-    @user = User.find_by!(username: params.fetch(:username))
+    @liked_photos = @user.liked_photos
+  end
+
+  def followers
+    @followers = @user.followers
+  end
+
+  def following
+    @following = @user.leaders
+  end
+
+  private
+
+  def get_user
+    @user = User.find_by!(username: params.fetch("username"))
   end
 end

@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   resources :follow_requests
   resources :likes
   resources :photos
-
-  get ":username/liked" => "users#liked", as: :liked
   
   get "/:username" => "users#show", as: :user
+  get "/:username/liked" => "users#liked", as: :liked
+  get "/:username/followers" => "users#followers", as: :followers
+  get "/:username/following" => "users#following", as: :following
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
