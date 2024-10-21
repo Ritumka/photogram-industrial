@@ -1,0 +1,11 @@
+<%= render partial: "users/links", locals: { user: @user } %>
+
+<div class="row">
+  <div class="col-md-6 offset-3">
+    <div class="list-group">
+      <% @following.each do |following| %>
+        <%= link_to "#{following.username}", user_path(following.username), class: "list-group-item list-group-item-action" %>
+      <% end %>
+    </div>
+  </div>
+</div>

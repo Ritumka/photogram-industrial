@@ -1,0 +1,6 @@
+<%= render partial: "users/links", locals: { user: @user } %>
+
+<% @user.own_photos.each do |photo| %>
+  <%= render "photos/photo", photo: photo %>
+
+<% end %>
